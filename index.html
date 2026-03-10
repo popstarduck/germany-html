@@ -3,1234 +3,557 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StudyGermany — Your Path to European Education</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>DeutschWeg — Study in Germany Advisory</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --black: #0a0a0a;
-    --white: #fafaf8;
-    --cream: #f5f2ec;
-    --gold: #c9a84c;
-    --gold-light: #e8d5a3;
-    --red: #c0392b;
-    --mid: #6b6b6b;
-    --border: #e0dbd2;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--white);
-    color: var(--black);
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 4rem;
-    background: rgba(250,250,248,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--black);
-    text-decoration: none;
-  }
-
-  .nav-logo span { color: var(--gold); }
-
-  nav ul {
-    list-style: none;
-    display: flex; gap: 2.5rem;
-  }
-
-  nav ul a {
-    text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--mid);
-    letter-spacing: 0.03em;
-    transition: color 0.2s;
-  }
-
-  nav ul a:hover { color: var(--black); }
-
-  .nav-cta {
-    background: var(--black);
-    color: var(--white) !important;
-    padding: 0.55rem 1.4rem;
-    border-radius: 3px;
-    font-weight: 600 !important;
-    transition: background 0.2s !important;
-  }
-
-  .nav-cta:hover { background: var(--gold) !important; color: var(--black) !important; }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 72px;
-  }
-
-  .hero-left {
-    padding: 7rem 4rem 5rem 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--cream);
-  }
-
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.8rem;
-  }
-
-  .hero-tag::before {
-    content: '';
-    display: block;
-    width: 24px; height: 1px;
-    background: var(--gold);
-  }
-
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 5vw, 4.2rem);
-    font-weight: 900;
-    line-height: 1.08;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.6rem;
-    color: var(--black);
-  }
-
-  h1 em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  .hero-sub {
-    font-size: 1.05rem;
-    font-weight: 300;
-    line-height: 1.75;
-    color: var(--mid);
-    max-width: 440px;
-    margin-bottom: 2.8rem;
-  }
-
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    background: var(--black);
-    color: var(--white);
-    text-decoration: none;
-    padding: 1rem 2.2rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    border-radius: 3px;
-    transition: all 0.25s;
-    border: 2px solid var(--black);
-  }
-
-  .btn-primary:hover {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--black);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(201,168,76,0.3);
-  }
-
-  .btn-ghost {
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--mid);
-    text-decoration: none;
-    display: flex; align-items: center; gap: 0.5rem;
-    transition: color 0.2s;
-  }
-
-  .btn-ghost:hover { color: var(--black); }
-
-  .hero-stats {
-    margin-top: 3.5rem;
-    padding-top: 2.5rem;
-    border-top: 1px solid var(--border);
-    display: flex; gap: 3rem;
-  }
-
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--black);
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-size: 0.78rem;
-    color: var(--mid);
-    margin-top: 0.3rem;
-    letter-spacing: 0.03em;
-  }
-
-  .hero-right {
-    position: relative;
-    overflow: hidden;
-    background: var(--black);
-  }
-
-  .hero-img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    opacity: 0.7;
-    display: block;
-  }
-
-  .hero-img-placeholder {
-    width: 100%; height: 100%;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* Brandenburg Gate SVG decoration */
-  .hero-img-placeholder::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 60%;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect x='100' y='150' width='600' height='250' fill='%23c9a84c' opacity='0.08'/%3E%3Crect x='150' y='100' width='20' height='300' fill='%23c9a84c' opacity='0.15'/%3E%3Crect x='210' y='100' width='20' height='300' fill='%23c9a84c' opacity='0.15'/%3E%3Crect x='270' y='100' width='20' height='300' fill='%23c9a84c' opacity='0.15'/%3E%3Crect x='330' y='100' width='20' height='300' fill='%23c9a84c' opacity='0.15'/%3E%3Crect x='390' y='100' width='20' height='300' fill='%23c9a84c' opacity='0.15'/%3E%3Crect x='450' y='100' width='20' height='300' fill='%23c9a84c' opacity='0.15'/%3E%3Crect x='510' y='100' width='20' height='300' fill='%23c9a84c' opacity='0.15'/%3E%3Crect x='570' y='100' width='20' height='300' fill='%23c9a84c' opacity='0.15'/%3E%3Crect x='630' y='100' width='20' height='300' fill='%23c9a84c' opacity='0.15'/%3E%3Crect x='130' y='60' width='540' height='50' fill='%23c9a84c' opacity='0.2'/%3E%3C/svg%3E") center/cover no-repeat;
-  }
-
-  .hero-badge {
-    position: absolute;
-    bottom: 2.5rem;
-    right: 2.5rem;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: #fff;
-    padding: 1.2rem 1.6rem;
-    border-radius: 8px;
-    text-align: center;
-  }
-
-  .hero-badge strong {
-    display: block;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--gold-light);
-  }
-
-  .hero-badge span {
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    opacity: 0.8;
-  }
-
-  /* LOGOS / TRUST */
-  .trust-bar {
-    background: var(--black);
-    padding: 1.4rem 5rem;
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    overflow: hidden;
-  }
-
-  .trust-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .trust-logos {
-    display: flex;
-    gap: 3rem;
-    align-items: center;
-    flex: 1;
-  }
-
-  .trust-uni {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.4);
-    white-space: nowrap;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-  }
-
-  /* HOW IT WORKS */
-  .section { padding: 7rem 5rem; }
-
-  .section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 20px; height: 1px;
-    background: var(--gold);
-  }
-
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    margin-bottom: 1rem;
-  }
-
-  .section-desc {
-    font-size: 1rem;
-    color: var(--mid);
-    line-height: 1.7;
-    max-width: 520px;
-    margin-bottom: 4rem;
-  }
-
-  /* Steps */
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
-    background: var(--border);
-  }
-
-  .step {
-    background: var(--white);
-    padding: 2.5rem 2rem;
-    position: relative;
-  }
-
-  .step-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: var(--cream);
-    line-height: 1;
-    margin-bottom: 1.2rem;
-    transition: color 0.3s;
-  }
-
-  .step:hover .step-num { color: var(--gold-light); }
-
-  .step-title {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.7rem;
-  }
-
-  .step-desc {
-    font-size: 0.88rem;
-    color: var(--mid);
-    line-height: 1.65;
-  }
-
-  /* PROGRAMS */
-  .programs-section {
-    background: var(--cream);
-    padding: 7rem 5rem;
-  }
-
-  .programs-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .program-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    padding: 2.2rem;
-    border-radius: 6px;
-    transition: all 0.3s;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .program-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transition: transform 0.3s;
-  }
-
-  .program-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
-    border-color: transparent;
-  }
-
-  .program-card:hover::before { transform: scaleX(1); }
-
-  .program-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .program-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .program-unis {
-    font-size: 0.78rem;
-    color: var(--gold);
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 0.8rem;
-  }
-
-  .program-desc {
-    font-size: 0.88rem;
-    color: var(--mid);
-    line-height: 1.6;
-  }
-
-  /* TESTIMONIALS */
-  .testimonials {
-    padding: 7rem 5rem;
-    background: var(--black);
-    color: var(--white);
-  }
-
-  .testimonials .section-label { color: var(--gold); }
-  .testimonials h2 { color: var(--white); }
-  .testimonials .section-desc { color: rgba(255,255,255,0.5); }
-
-  .testi-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .testi-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 2rem;
-    border-radius: 6px;
-  }
-
-  .testi-quote {
-    font-size: 0.95rem;
-    line-height: 1.75;
-    color: rgba(255,255,255,0.8);
-    margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-
-  .testi-author {
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
-  }
-
-  .testi-avatar {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.9rem;
-    flex-shrink: 0;
-  }
-
-  .testi-name {
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
-
-  .testi-detail {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.4);
-    margin-top: 0.15rem;
-  }
-
-  .stars {
-    color: var(--gold);
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
-    letter-spacing: 2px;
-  }
-
-  /* FAQ */
-  .faq-section {
-    padding: 7rem 5rem;
-    background: var(--cream);
-  }
-
-  .faq-layout {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 5rem;
-    align-items: start;
-  }
-
-  .faq-left { position: sticky; top: 6rem; }
-
-  .faq-list { margin-top: 2rem; }
-
-  .faq-item {
-    border-top: 1px solid var(--border);
-    padding: 1.5rem 0;
-  }
-
-  .faq-item:last-child { border-bottom: 1px solid var(--border); }
-
-  .faq-question {
-    width: 100%;
-    text-align: left;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.97rem;
-    font-weight: 600;
-    color: var(--black);
-    line-height: 1.4;
-  }
-
-  .faq-icon {
-    width: 24px; height: 24px;
-    border: 1.5px solid var(--border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 1rem;
-    color: var(--mid);
-    transition: all 0.25s;
-    font-style: normal;
-  }
-
-  .faq-item.open .faq-icon {
-    background: var(--black);
-    border-color: var(--black);
-    color: var(--white);
-    transform: rotate(45deg);
-  }
-
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.3s ease;
-  }
-
-  .faq-item.open .faq-answer {
-    max-height: 300px;
-    padding-top: 1rem;
-  }
-
-  .faq-answer p {
-    font-size: 0.9rem;
-    line-height: 1.75;
-    color: var(--mid);
-  }
-
-  /* FORM SECTION */
-  .form-section {
-    padding: 7rem 5rem;
-    background: var(--white);
-  }
-
-  .form-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 6rem;
-    align-items: center;
-  }
-
-  .form-left h2 { margin-bottom: 1.2rem; }
-
-  .form-left p {
-    font-size: 0.95rem;
-    color: var(--mid);
-    line-height: 1.75;
-    margin-bottom: 2rem;
-  }
-
-  .form-perks {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.9rem;
-  }
-
-  .form-perks li {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-size: 0.9rem;
-    color: var(--mid);
-  }
-
-  .perk-check {
-    width: 20px; height: 20px;
-    background: var(--black);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    color: #fff;
-    font-size: 0.6rem;
-  }
-
-  .form-card {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 2.8rem;
-  }
-
-  .form-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.4rem;
-  }
-
-  .form-subtitle {
-    font-size: 0.85rem;
-    color: var(--mid);
-    margin-bottom: 2rem;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .form-group {
-    margin-bottom: 1rem;
-    position: relative;
-  }
-
-  .form-group label {
-    display: block;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--black);
-    margin-bottom: 0.45rem;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border: 1.5px solid var(--border);
-    border-radius: 4px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    background: var(--white);
-    color: var(--black);
-    transition: border-color 0.2s;
-    appearance: none;
-  }
-
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: var(--black);
-  }
-
-  .form-group select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b6b6b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    padding-right: 2.5rem;
-  }
-
-  .form-submit {
-    width: 100%;
-    padding: 1.1rem;
-    background: var(--black);
-    color: var(--white);
-    border: none;
-    border-radius: 4px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    letter-spacing: 0.03em;
-    transition: all 0.25s;
-    margin-top: 0.5rem;
-  }
-
-  .form-submit:hover {
-    background: var(--gold);
-    color: var(--black);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(201,168,76,0.35);
-  }
-
-  .form-note {
-    text-align: center;
-    font-size: 0.75rem;
-    color: var(--mid);
-    margin-top: 1rem;
-  }
-
-  /* SUCCESS */
-  .form-success {
-    display: none;
-    text-align: center;
-    padding: 2rem;
-  }
-
-  .form-success.visible { display: block; }
-
-  .success-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
-  /* FOOTER */
-  footer {
-    background: var(--black);
-    color: rgba(255,255,255,0.5);
-    padding: 3rem 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.8);
-    font-weight: 700;
-  }
-
-  .footer-logo span { color: var(--gold); }
-
-  .footer-links {
-    display: flex; gap: 2rem;
-    list-style: none;
-  }
-
-  .footer-links a {
-    text-decoration: none;
-    color: rgba(255,255,255,0.4);
-    font-size: 0.82rem;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: rgba(255,255,255,0.8); }
-
-  footer p { font-size: 0.8rem; }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-left > * {
-    opacity: 0;
-    animation: fadeUp 0.7s ease forwards;
-  }
-
-  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
-  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
-  .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
-  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
-  .hero-left > *:nth-child(5) { animation-delay: 0.5s; }
-
-  /* Responsive */
-  @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; }
-    nav ul { display: none; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-right { min-height: 280px; }
-    .hero-left { padding: 5rem 1.5rem 3rem; }
-    .section, .programs-section, .testimonials, .faq-section, .form-section { padding: 4rem 1.5rem; }
-    .steps { grid-template-columns: 1fr 1fr; }
-    .programs-grid, .testi-grid { grid-template-columns: 1fr; }
-    .faq-layout, .form-wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
-    .form-row { grid-template-columns: 1fr; }
-    .trust-bar { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
-    .hero-stats { gap: 1.5rem; }
-    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 1.5rem; }
-  }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --white: #ffffff;
+  --snow: #f9f8f5;
+  --ink: #111218;
+  --mid: #6b6b7a;
+  --light: #e0ddd6;
+  --border: #e0ddd6;
+  --red: #C8001A;
+  --gold: #C69214;
+  --gold-bg: #fdf8ec;
+  --gold-border: rgba(198,146,20,0.25);
+}
+body { background:#fff; color:var(--ink); font-family:'Outfit',sans-serif; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:200; height:68px; background:rgba(255,255,255,0.95); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; padding:0 48px; }
+.brand { display:flex; align-items:center; gap:12px; font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:700; color:var(--ink); letter-spacing:-0.01em; text-decoration:none; }
+.de-flag { display:flex; flex-direction:column; width:24px; height:18px; border-radius:3px; overflow:hidden; border:1px solid rgba(0,0,0,0.12); flex-shrink:0; }
+.de-flag span { flex:1; display:block; }
+.de-flag span:nth-child(1) { background:#000; }
+.de-flag span:nth-child(2) { background:#DD0000; }
+.de-flag span:nth-child(3) { background:#FFCE00; }
+.nav-links { display:flex; align-items:center; gap:32px; }
+.nav-links a { font-size:14px; font-weight:400; color:var(--mid); text-decoration:none; transition:color .2s; }
+.nav-links a:hover { color:var(--ink); }
+.nav-btn { background:var(--ink); color:white; padding:11px 24px; border-radius:9px; font-size:13px; font-weight:600; text-decoration:none; transition:background .2s, transform .15s; font-family:'Outfit',sans-serif; }
+.nav-btn:hover { background:var(--red); transform:translateY(-1px); }
+
+/* HERO */
+.hero { min-height:100vh; padding:128px 48px 80px; max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1.1fr 0.9fr; gap:80px; align-items:center; }
+.hero-eyebrow { display:inline-flex; align-items:center; gap:8px; padding:7px 16px; background:var(--gold-bg); border:1px solid var(--gold-border); border-radius:100px; font-size:12px; font-weight:500; color:#7a5c00; letter-spacing:.04em; margin-bottom:30px; opacity:0; animation:up .7s .1s forwards; }
+.hero-eyebrow::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+h1.hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(50px,5.5vw,78px); font-weight:700; line-height:1.03; letter-spacing:-.02em; color:var(--ink); margin-bottom:26px; opacity:0; animation:up .7s .25s forwards; }
+h1.hero-title em { font-style:italic; color:var(--red); }
+.hero-sub { font-size:17px; line-height:1.8; color:var(--mid); font-weight:300; max-width:500px; margin-bottom:44px; opacity:0; animation:up .7s .4s forwards; }
+.hero-btns { display:flex; gap:14px; align-items:center; opacity:0; animation:up .7s .55s forwards; }
+.btn-primary { background:var(--ink); color:white; padding:15px 34px; border-radius:10px; font-size:14px; font-weight:600; text-decoration:none; display:inline-block; transition:background .2s, transform .15s; font-family:'Outfit',sans-serif; }
+.btn-primary:hover { background:var(--red); transform:translateY(-2px); }
+.btn-text { font-size:14px; font-weight:500; color:var(--mid); text-decoration:none; display:flex; align-items:center; gap:6px; transition:color .2s; }
+.btn-text:hover { color:var(--ink); }
+
+/* HERO VISUAL */
+.hero-visual { opacity:0; animation:up .7s .3s forwards; }
+.info-card { background:var(--ink); border-radius:22px; padding:44px 40px; color:white; margin-bottom:16px; position:relative; overflow:hidden; }
+.info-card::after { content:'🇩🇪'; position:absolute; right:28px; top:28px; font-size:32px; opacity:.5; }
+.info-card-label { font-size:11px; font-weight:500; letter-spacing:.25em; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:22px; }
+.info-card h3 { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; line-height:1.35; color:white; margin-bottom:28px; }
+.info-card h3 em { font-style:italic; color:#FFCE00; }
+.path-steps { display:flex; flex-direction:column; gap:10px; }
+.path-step { display:flex; align-items:center; gap:12px; font-size:13px; color:rgba(255,255,255,.7); font-weight:300; }
+.ps-dot { width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0; }
+.ps-dot.active { background:#FFCE00; color:#000; }
+.mini-cards { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.mini-card { border:1.5px solid var(--border); border-radius:16px; padding:24px 22px; background:white; box-shadow:0 2px 12px rgba(0,0,0,.05); }
+.mini-num { font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:700; line-height:1; margin-bottom:4px; }
+.mini-num.red { color:var(--red); }
+.mini-num.gold { color:var(--gold); }
+.mini-num.ink { color:var(--ink); }
+.mini-lbl { font-size:12px; color:var(--mid); font-weight:400; }
+
+/* STRIPE */
+.stripe { height:5px; background:linear-gradient(90deg,#000 33.33%,#DD0000 33.33%,#DD0000 66.66%,#FFCE00 66.66%); }
+
+/* WHAT WE DO */
+.what-section { background:var(--snow); padding:96px 48px; }
+.what-inner { max-width:1280px; margin:0 auto; }
+.section-eyebrow { font-size:11px; font-weight:600; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+.section-heading { font-family:'Cormorant Garamond',serif; font-size:clamp(34px,3.5vw,50px); font-weight:700; line-height:1.1; color:var(--ink); margin-bottom:56px; max-width:580px; }
+.what-grid { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--border); border-radius:20px; overflow:hidden; background:var(--border); gap:1px; }
+.what-item { background:white; padding:40px 30px; transition:background .2s; }
+.what-item:hover { background:#fdfcf9; }
+.wi-icon { font-size:28px; margin-bottom:16px; display:block; }
+.wi-num { font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:700; color:var(--light); line-height:1; margin-bottom:8px; }
+.wi-title { font-family:'Cormorant Garamond',serif; font-size:21px; font-weight:700; color:var(--ink); margin-bottom:10px; line-height:1.2; }
+.wi-desc { font-size:13px; line-height:1.75; color:var(--mid); font-weight:300; }
+
+/* PACKAGES INDIVIDUAL */
+.packages-section { padding:96px 48px; max-width:1280px; margin:0 auto; }
+.ind-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.pkg-card { border:1.5px solid var(--border); border-radius:22px; padding:42px 36px; background:white; position:relative; transition:box-shadow .25s, transform .25s, border-color .25s; }
+.pkg-card:hover { box-shadow:0 16px 48px rgba(0,0,0,.09); transform:translateY(-5px); border-color:var(--gold); }
+.pkg-card.featured { border-color:var(--ink); background:var(--ink); color:white; }
+.pkg-card.featured:hover { border-color:var(--red); }
+.feat-badge { position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:var(--red); color:white; font-size:10px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; padding:5px 18px; border-radius:100px; white-space:nowrap; }
+.pkg-tier { font-size:10px; font-weight:600; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+.pkg-card.featured .pkg-tier { color:rgba(255,206,0,.8); }
+.pkg-name { font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:700; line-height:1; color:var(--ink); margin-bottom:4px; }
+.pkg-card.featured .pkg-name { color:white; }
+.pkg-sub { font-size:13px; font-style:italic; color:var(--mid); font-family:'Cormorant Garamond',serif; margin-bottom:28px; }
+.pkg-card.featured .pkg-sub { color:rgba(255,255,255,.45); }
+.pkg-price-block { border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:22px 0; margin-bottom:24px; }
+.pkg-card.featured .pkg-price-block { border-color:rgba(255,255,255,.12); }
+.pkg-price { font-family:'Cormorant Garamond',serif; font-size:52px; font-weight:700; color:var(--ink); line-height:1; }
+.pkg-card.featured .pkg-price { color:white; }
+.pkg-price .curr { font-size:20px; vertical-align:super; font-weight:600; margin-right:2px; color:var(--gold); }
+.pkg-card.featured .pkg-price .curr { color:#FFCE00; }
+.pkg-cadence { font-size:12px; color:var(--mid); margin-top:5px; font-weight:300; }
+.pkg-card.featured .pkg-cadence { color:rgba(255,255,255,.4); }
+.pkg-who { font-size:12px; font-weight:500; color:var(--gold); margin-bottom:18px; display:flex; align-items:center; gap:6px; }
+.pkg-who::before { content:'→'; }
+.pkg-card.featured .pkg-who { color:#FFCE00; }
+.pkg-features { list-style:none; margin-bottom:32px; }
+.pkg-features li { font-size:13.5px; line-height:1.5; color:var(--mid); padding:8px 0; border-bottom:1px solid rgba(0,0,0,.05); display:flex; align-items:flex-start; gap:10px; font-weight:300; }
+.pkg-card.featured .pkg-features li { color:rgba(255,255,255,.65); border-bottom-color:rgba(255,255,255,.07); }
+.pkg-features li:last-child { border-bottom:none; }
+.tick { width:18px; height:18px; flex-shrink:0; margin-top:1px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:rgba(198,146,20,.12); border:1px solid rgba(198,146,20,.3); }
+.tick svg { width:9px; height:9px; stroke:var(--gold); stroke-width:2.5; fill:none; }
+.pkg-card.featured .tick { background:rgba(255,206,0,.12); border-color:rgba(255,206,0,.3); }
+.pkg-card.featured .tick svg { stroke:#FFCE00; }
+.pkg-btn { display:block; width:100%; padding:15px; border-radius:11px; font-size:14px; font-weight:600; text-align:center; cursor:pointer; text-decoration:none; transition:all .2s; font-family:'Outfit',sans-serif; border:none; }
+.pkg-btn-outline { background:transparent; border:1.5px solid var(--border); color:var(--ink); }
+.pkg-btn-outline:hover { border-color:var(--ink); background:var(--snow); }
+.pkg-btn-solid { background:white; color:var(--ink); }
+.pkg-btn-solid:hover { background:#FFCE00; color:#000; }
+
+/* GROUP */
+.group-section { background:var(--snow); padding:96px 48px; }
+.group-inner { max-width:1280px; margin:0 auto; }
+.group-grid { display:grid; grid-template-columns:1.2fr 0.8fr; gap:56px; align-items:start; }
+.group-card { border:1.5px solid var(--border); border-radius:22px; background:white; overflow:hidden; box-shadow:0 4px 32px rgba(0,0,0,.06); }
+.group-card-header { background:linear-gradient(135deg,#0f1020 0%,#1c1f3a 100%); padding:44px 44px 40px; position:relative; overflow:hidden; }
+.group-card-header::after { content:'🏫'; position:absolute; right:36px; top:36px; font-size:44px; opacity:.2; }
+.group-badge { display:inline-block; background:rgba(255,206,0,.15); border:1px solid rgba(255,206,0,.3); color:#FFCE00; font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; padding:5px 14px; border-radius:100px; margin-bottom:18px; }
+.group-card-header h3 { font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:700; color:white; line-height:1.1; margin-bottom:6px; }
+.group-card-header .sub { font-size:14px; color:rgba(255,255,255,.4); font-family:'Cormorant Garamond',serif; font-style:italic; }
+.group-card-body { padding:40px 44px; }
+.group-tiers { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:32px; }
+.g-tier { background:var(--snow); border:1.5px solid var(--border); border-radius:14px; padding:20px 18px; transition:border-color .2s; }
+.g-tier:hover { border-color:var(--gold); }
+.g-tier-size { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:var(--ink); margin-bottom:3px; }
+.g-tier-label { font-size:11px; color:var(--mid); font-weight:400; margin-bottom:10px; }
+.g-tier-price { font-size:18px; font-weight:700; color:var(--gold); font-family:'Cormorant Garamond',serif; }
+.g-tier-price span { font-size:12px; color:var(--mid); font-weight:300; }
+.group-features { list-style:none; margin-bottom:32px; }
+.group-features li { font-size:13.5px; color:var(--mid); padding:9px 0; border-bottom:1px solid var(--border); display:flex; align-items:flex-start; gap:10px; font-weight:300; line-height:1.5; }
+.group-features li:last-child { border-bottom:none; }
+.pkg-btn-group { display:block; width:100%; padding:16px; border-radius:11px; font-size:14px; font-weight:600; text-align:center; cursor:pointer; text-decoration:none; background:var(--ink); color:white; font-family:'Outfit',sans-serif; border:none; transition:background .2s, transform .15s; }
+.pkg-btn-group:hover { background:var(--red); transform:translateY(-2px); }
+.group-sidebar { display:flex; flex-direction:column; gap:20px; }
+.sidebar-card { background:white; border:1.5px solid var(--border); border-radius:18px; padding:30px 28px; }
+.sidebar-card h4 { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--ink); margin-bottom:12px; }
+.sidebar-card p { font-size:13px; color:var(--mid); line-height:1.75; font-weight:300; }
+.sidebar-tag { display:inline-block; margin-top:14px; background:var(--gold-bg); border:1px solid var(--gold-border); color:var(--gold); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; padding:5px 12px; border-radius:100px; }
+.who-list { list-style:none; margin-top:12px; }
+.who-list li { font-size:13px; color:var(--mid); padding:6px 0; display:flex; align-items:center; gap:8px; font-weight:300; }
+.who-list li::before { content:'→'; color:var(--gold); font-size:12px; }
+
+/* LEVELS */
+.levels-section { padding:80px 48px; max-width:1280px; margin:0 auto; }
+.levels-row { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-top:48px; }
+.lv-card { border:1.5px solid var(--border); border-radius:16px; padding:22px 16px; text-align:center; background:white; transition:border-color .2s, transform .2s; }
+.lv-card:hover { border-color:var(--gold); transform:translateY(-3px); }
+.lv-code { font-family:'Cormorant Garamond',serif; font-size:34px; font-weight:700; color:var(--gold); line-height:1; display:block; margin-bottom:6px; }
+.lv-name { font-size:13px; font-weight:600; color:var(--ink); margin-bottom:5px; }
+.lv-desc { font-size:11px; color:var(--mid); line-height:1.5; }
+.lv-card.required { border-color:rgba(200,0,26,.3); background:linear-gradient(160deg,rgba(200,0,26,.03) 0%,white 50%); }
+.lv-req-tag { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--red); display:block; margin-top:8px; }
+.levels-note { margin-top:24px; font-size:13px; color:var(--mid); font-weight:300; line-height:1.75; max-width:760px; }
+
+/* CTA */
+.cta-section { padding:80px 48px 100px; max-width:1280px; margin:0 auto; }
+.cta-box { background:var(--ink); border-radius:26px; padding:80px 72px; display:grid; grid-template-columns:1fr auto; gap:60px; align-items:center; position:relative; overflow:hidden; }
+.cta-box::before { content:'DE'; position:absolute; right:-10px; bottom:-50px; font-family:'Cormorant Garamond',serif; font-size:260px; font-weight:900; color:rgba(255,255,255,.03); line-height:1; pointer-events:none; user-select:none; }
+.cta-label { font-size:11px; font-weight:600; letter-spacing:.3em; text-transform:uppercase; color:rgba(255,206,0,.7); margin-bottom:14px; }
+.cta-title { font-family:'Cormorant Garamond',serif; font-size:clamp(30px,3.5vw,48px); font-weight:700; color:white; line-height:1.15; margin-bottom:14px; }
+.cta-title em { font-style:italic; color:#FFCE00; }
+.cta-sub { font-size:15px; color:rgba(255,255,255,.5); font-weight:300; line-height:1.75; }
+.cta-actions { display:flex; flex-direction:column; gap:14px; align-items:stretch; min-width:220px; }
+.cta-btn-wa { background:#25D366; color:white; padding:16px 28px; border-radius:11px; font-size:14px; font-weight:600; text-decoration:none; text-align:center; font-family:'Outfit',sans-serif; transition:opacity .2s, transform .15s; display:block; }
+.cta-btn-wa:hover { opacity:.9; transform:translateY(-2px); }
+.cta-btn-email { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); color:rgba(255,255,255,.75); padding:15px 28px; border-radius:11px; font-size:14px; font-weight:500; text-decoration:none; text-align:center; font-family:'Outfit',sans-serif; transition:background .2s; display:block; }
+.cta-btn-email:hover { background:rgba(255,255,255,.13); }
+
+/* FOOTER */
+footer { border-top:1px solid var(--border); padding:32px 48px; display:flex; justify-content:space-between; align-items:center; max-width:1280px; margin:0 auto; flex-wrap:wrap; gap:12px; }
+.footer-brand { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; color:var(--ink); }
+.footer-note { font-size:13px; color:var(--mid); }
+
+/* ANIMATIONS */
+@keyframes up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+.fadein { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+.fadein.visible { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr;gap:48px;min-height:auto;padding-top:110px;}
+  .ind-grid,.what-grid{grid-template-columns:1fr 1fr;}
+  .what-grid{grid-template-columns:1fr 1fr;}
+  .group-grid{grid-template-columns:1fr;}
+  .cta-box{grid-template-columns:1fr;padding:56px 40px;}
+  .cta-actions{flex-direction:row;}
+  .levels-row{grid-template-columns:repeat(3,1fr);}
+}
+@media(max-width:640px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  .hero{padding:100px 20px 60px;}
+  .what-section,.group-section,.levels-section,.packages-section,.cta-section{padding:64px 20px;}
+  .ind-grid,.what-grid{grid-template-columns:1fr;}
+  .mini-cards,.group-tiers{grid-template-columns:1fr 1fr;}
+  .levels-row{grid-template-columns:repeat(2,1fr);}
+  .cta-box{padding:40px 24px;}
+  .cta-actions{flex-direction:column;}
+  footer{flex-direction:column;text-align:center;}
+  .group-card-body{padding:28px 24px;}
+  .group-card-header{padding:32px 24px 28px;}
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Study<span>Germany</span></a>
-  <ul>
-    <li><a href="#how">How It Works</a></li>
-    <li><a href="#programs">Programs</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#apply" class="nav-cta">Get Free Consultation</a></li>
-  </ul>
+  <a href="#" class="brand">
+    <div class="de-flag"><span></span><span></span><span></span></div>
+    DeutschWeg
+  </a>
+  <div class="nav-links">
+    <a href="#what">How It Works</a>
+    <a href="#packages">Packages</a>
+    <a href="#groups">For Schools</a>
+  </div>
+  <a href="#contact" class="nav-btn">Book Free Consultation</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-tag">Free University Education in Europe</div>
-    <h1>Study in<br><em>Germany</em> —<br>Tuition-Free.</h1>
-    <p class="hero-sub">Germany offers world-class university education with little to no tuition fees — even for international students. Our advisors guide you through every step, from university selection to visa approval.</p>
-    <div class="hero-actions">
-      <a href="https://1w2wqdmqt8z.typeform.com/to/XKNgXc6D" class="btn-primary">Apply for Free Consultation →</a>
-      <a href="#how" class="btn-ghost">See how it works ↓</a>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">400+</div>
-        <div class="stat-label">Accredited Universities</div>
-      </div>
-      <div>
-        <div class="stat-num">€0</div>
-        <div class="stat-label">Avg. Tuition at Public Unis</div>
-      </div>
-      <div>
-        <div class="stat-num">97%</div>
-        <div class="stat-label">Visa Success Rate</div>
-      </div>
+<div class="hero">
+  <div>
+    <div class="hero-eyebrow">Dubai → Deutschland · University Advisory</div>
+    <h1 class="hero-title">
+      Your guide to<br>
+      studying at a<br>
+      <em>German university.</em>
+    </h1>
+    <p class="hero-sub">
+      We map your path, connect you with the right language schools, handle your application, and support you all the way to enrollment — so you can focus on the dream.
+    </p>
+    <div class="hero-btns">
+      <a href="#packages" class="btn-primary">View Packages →</a>
+      <a href="#what" class="btn-text">How it works ↓</a>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-img-placeholder">
-      <!-- Brandenburg Gate silhouette effect -->
-    </div>
-    <div class="hero-badge">
-      <strong>2,500+</strong>
-      <span>Students placed since 2018</span>
-    </div>
-  </div>
-</section>
 
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <span class="trust-label">Partner Universities</span>
-  <div class="trust-logos">
-    <span class="trust-uni">TU Munich</span>
-    <span class="trust-uni">Heidelberg</span>
-    <span class="trust-uni">Humboldt Berlin</span>
-    <span class="trust-uni">RWTH Aachen</span>
-    <span class="trust-uni">LMU Munich</span>
-    <span class="trust-uni">Freie Universität</span>
-    <span class="trust-uni">TU Berlin</span>
+  <div class="hero-visual">
+    <div class="info-card">
+      <div class="info-card-label">Your Journey</div>
+      <h3>Dubai student →<br><em>German graduate.</em></h3>
+      <div class="path-steps">
+        <div class="path-step"><div class="ps-dot active">1</div>Consultation & profile assessment</div>
+        <div class="path-step"><div class="ps-dot active">2</div>Matched to certified German language schools</div>
+        <div class="path-step"><div class="ps-dot active">3</div>Application & document support</div>
+        <div class="path-step"><div class="ps-dot">4</div>University enrollment & visa guidance</div>
+        <div class="path-step"><div class="ps-dot">5</div>Arrival prep & settling in Germany</div>
+      </div>
+    </div>
+    <div class="mini-cards">
+      <div class="mini-card">
+        <div class="mini-num red">€0</div>
+        <div class="mini-lbl">Public uni tuition in Germany</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-num gold">400+</div>
+        <div class="mini-lbl">Public universities available</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-num ink">B2–C1</div>
+        <div class="mini-lbl">German level needed to apply</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-num red">100%</div>
+        <div class="mini-lbl">End-to-end guidance</div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- HOW IT WORKS -->
-<section class="section" id="how">
-  <div class="section-label">Our Process</div>
-  <h2>From Inquiry to<br>Enrollment in 4 Steps</h2>
-  <p class="section-desc">We've helped thousands of international students navigate the German university system. Our process is transparent and results-driven.</p>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">01</div>
-      <div class="step-title">Free Consultation</div>
-      <p class="step-desc">A dedicated advisor reviews your academic background and goals to identify the best-fit universities and programs for you.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <div class="step-title">University Selection</div>
-      <p class="step-desc">We shortlist 3–5 universities that match your profile, preferred city, and language of instruction (English or German).</p>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <div class="step-title">Application Support</div>
-      <p class="step-desc">Our team reviews your SOP, translates documents, and submits applications through Uni-Assist or directly to universities.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">04</div>
-      <div class="step-title">Visa & Arrival</div>
-      <p class="step-desc">We help you with your student visa application, interview, blocked account setup, and guide you with housing resources before you arrive.</p>
-    </div>
-  </div>
-</section>
+<div class="stripe"></div>
 
-<!-- PROGRAMS -->
-<section class="programs-section" id="programs">
-  <div class="section-label">What You Can Study</div>
-  <h2>Popular Fields of Study</h2>
-  <p class="section-desc">Germany excels across disciplines. Whether you're pursuing engineering, business, or the arts, there's a world-ranked program waiting for you.</p>
-  <div class="programs-grid">
-    <div class="program-card">
-      <div class="program-icon">⚙️</div>
-      <div class="program-title">Engineering & Technology</div>
-      <div class="program-unis">TU Munich · RWTH Aachen · KIT</div>
-      <p class="program-desc">Mechanical, electrical, civil, and software engineering programs consistently ranked in the global top 50. Strong ties to BMW, Siemens, and Bosch.</p>
-    </div>
-    <div class="program-card">
-      <div class="program-icon">💼</div>
-      <div class="program-title">Business & Economics</div>
-      <div class="program-unis">Mannheim · Frankfurt · WHU</div>
-      <p class="program-desc">Rigorous MBA and Bachelor programs with direct industry connections. Many programs are fully taught in English.</p>
-    </div>
-    <div class="program-card">
-      <div class="program-icon">🔬</div>
-      <div class="program-title">Natural Sciences</div>
-      <div class="program-unis">Heidelberg · LMU · Göttingen</div>
-      <p class="program-desc">From chemistry to biotechnology, Germany is home to Nobel laureate-led research institutions with world-class lab facilities.</p>
-    </div>
-    <div class="program-card">
-      <div class="program-icon">💻</div>
-      <div class="program-title">Computer Science & AI</div>
-      <div class="program-unis">TU Berlin · Saarland · Stuttgart</div>
-      <p class="program-desc">Cutting-edge programs in machine learning, data science, and cybersecurity. Graduates are recruited by top global tech firms.</p>
-    </div>
-    <div class="program-card">
-      <div class="program-icon">🏥</div>
-      <div class="program-title">Medicine & Health Sciences</div>
-      <div class="program-unis">Charité Berlin · Freiburg · Cologne</div>
-      <p class="program-desc">Highly competitive but rewarding — we specialize in helping pre-med students build a strong application profile from the ground up.</p>
-    </div>
-    <div class="program-card">
-      <div class="program-icon">🎨</div>
-      <div class="program-title">Arts, Design & Architecture</div>
-      <div class="program-unis">HfG Offenbach · UdK Berlin</div>
-      <p class="program-desc">Germany's design and arts schools rival those in the UK and US — at a fraction of the cost. Portfolio review support included.</p>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="section-label">Student Stories</div>
-  <h2>Real Students,<br>Real Results</h2>
-  <p class="section-desc">Don't take our word for it. Here's what our students say about studying in Germany with our help.</p>
-  <div class="testi-grid">
-    <div class="testi-card">
-      <div class="stars">★★★★★</div>
-      <p class="testi-quote">"I didn't think studying in Germany was possible for me — my grades weren't perfect and my budget was tight. StudyGermany found me a program in English, handled all the paperwork, and I landed in Munich six months later."</p>
-      <div class="testi-author">
-        <div class="testi-avatar" style="background:#e8d5a3;color:#0a0a0a;">AK</div>
-        <div>
-          <div class="testi-name">Arjun K.</div>
-          <div class="testi-detail">MSc Computer Science · TU Munich · India</div>
-        </div>
+<!-- WHAT WE DO -->
+<div class="what-section" id="what">
+  <div class="what-inner fadein">
+    <div class="section-eyebrow">What We Do</div>
+    <h2 class="section-heading">We're your advisor,<br>connector & guide.</h2>
+    <div class="what-grid">
+      <div class="what-item">
+        <span class="wi-icon">🧭</span>
+        <div class="wi-num">01</div>
+        <div class="wi-title">Profile Assessment</div>
+        <div class="wi-desc">We evaluate your academic background, goals, and timeline to build a clear, personalised roadmap to German university admission.</div>
       </div>
-    </div>
-    <div class="testi-card">
-      <div class="stars">★★★★★</div>
-      <p class="testi-quote">"The visa process terrified me. My advisor walked me through every single document, what to say at the embassy interview, and even helped me open my blocked account. I got my visa in 3 weeks."</p>
-      <div class="testi-author">
-        <div class="testi-avatar" style="background:#c0392b;color:#fff;">FM</div>
-        <div>
-          <div class="testi-name">Fatima M.</div>
-          <div class="testi-detail">BSc Business Administration · Mannheim · Morocco</div>
-        </div>
+      <div class="what-item">
+        <span class="wi-icon">🏫</span>
+        <div class="wi-num">02</div>
+        <div class="wi-title">Language School Connection</div>
+        <div class="wi-desc">We don't teach German — we connect you with the right certified language schools in Germany or online that fit your timeline and level.</div>
       </div>
-    </div>
-    <div class="testi-card">
-      <div class="stars">★★★★★</div>
-      <p class="testi-quote">"From my first email to landing my acceptance letter from RWTH Aachen, the team was always responsive. They reviewed my SOP four times until it was perfect. Worth every cent of the service fee."</p>
-      <div class="testi-author">
-        <div class="testi-avatar" style="background:#0f3460;color:#fff;">CL</div>
-        <div>
-          <div class="testi-name">Carlos L.</div>
-          <div class="testi-detail">MEng Mechanical Engineering · RWTH Aachen · Brazil</div>
-        </div>
+      <div class="what-item">
+        <span class="wi-icon">📄</span>
+        <div class="wi-num">03</div>
+        <div class="wi-title">Application Support</div>
+        <div class="wi-desc">German university applications are complex. We guide you through every form, document, deadline, and requirement from start to finish.</div>
+      </div>
+      <div class="what-item">
+        <span class="wi-icon">✈️</span>
+        <div class="wi-num">04</div>
+        <div class="wi-title">Visa & Arrival Prep</div>
+        <div class="wi-desc">Student visa checklist, blocked account guidance, health insurance, housing research, and city orientation before you land.</div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- FAQ -->
-<section class="faq-section" id="faq">
-  <div class="faq-layout">
-    <div class="faq-left">
-      <div class="section-label">Frequently Asked</div>
-      <h2>Your Questions,<br>Answered.</h2>
-      <p style="margin-top:1rem;font-size:0.92rem;color:var(--mid);line-height:1.7;">Can't find your answer? Book a free 30-minute consultation with one of our Germany education advisors.</p>
-      <a href="https://1w2wqdmqt8z.typeform.com/to/XKNgXc6D" class="btn-primary" style="display:inline-block;margin-top:1.8rem;">Book Free Call →</a>
-    </div>
-    <div class="faq-list" id="faqList">
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          Is it really free to study in Germany?
-          <i class="faq-icon">+</i>
-        </button>
-        <div class="faq-answer">
-          <p>Yes — public universities in Germany charge no tuition fees to both domestic and international students, including those from outside the EU. You'll typically pay a semester contribution (Semesterbeitrag) of €150–€350, which often includes a regional public transport pass. Private universities do charge tuition, but we primarily work with public institutions.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          Do I need to speak German to study there?
-          <i class="faq-icon">+</i>
-        </button>
-        <div class="faq-answer">
-          <p>Not necessarily but will increase your chance getting to your desired course. That said, learning basic German will improve your day-to-day life. For German-taught programs, you'll need to pass the DSH or TestDaF exam, which we can help you prepare for.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          What GPA or grades do I need to get accepted?
-          <i class="faq-icon">+</i>
-        </button>
-        <div class="faq-answer">
-          <p>Requirements vary by university and program. Highly competitive programs like Medicine or Architecture at top universities may require near-perfect grades. However, many excellent programs have moderate entry requirements. We assess your profile and identify realistic target universities — we don't just apply to reach schools.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          How long does the application process take?
-          <i class="faq-icon">+</i>
-        </button>
-        <div class="faq-answer">
-          <p>German universities have two main intakes: Winter Semester (October start, apply by May–July) and Summer Semester (April start, apply by November–January). We recommend starting your application at least 8–10 months before your intended start date to allow time for document preparation, visa processing, and accommodation searches.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          What is a "blocked account" and do I need one?
-          <i class="faq-icon">+</i>
-        </button>
-        <div class="faq-answer">
-          <p>A blocked account (Sperrkonto) is a German bank account required for the student visa. You must deposit approximately €11,208 (as of 2024) to prove you can support yourself financially. This money is "unblocked" in monthly installments once you arrive. We guide you through opening this account with providers like Fintiba or Expatrio.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          What does your service cost?
-          <i class="faq-icon">+</i>
-        </button>
-        <div class="faq-answer">
-          <p>The initial consultation is completely free. Our full advisory packages range from document review services to end-to-end application management. Pricing is transparent and discussed during your consultation based on your needs. We do not charge success fees or hidden costs.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          Can you help with scholarship applications?
-          <i class="faq-icon">+</i>
-        </button>
-        <div class="faq-answer">
-          <p>Yes. Germany offers numerous scholarships for international students, including the DAAD (the world's largest academic exchange organisation), Deutschlandstipendium, and university-specific grants. We identify scholarships you're eligible for and help you craft compelling applications.</p>
-        </div>
-      </div>
-    </div>
+<!-- INDIVIDUAL PACKAGES -->
+<div class="packages-section" id="packages">
+  <div class="fadein">
+    <div class="section-eyebrow">Individual Packages</div>
+    <h2 class="section-heading">Built around<br>where you are now.</h2>
   </div>
-</section>
+  <div class="ind-grid fadein">
 
-<!-- FORM SECTION -->
-<section class="form-section" id="apply">
-  <div class="form-wrapper">
-    <div class="form-left">
-      <div class="section-label">Start Today</div>
-      <h2>Get Your Free<br>Consultation</h2>
-      <p>Tell us about yourself and one of our Germany education specialists will reach out within 24 hours to map out your personal pathway to studying in Germany.</p>
-      <ul class="form-perks">
-        <li>
-          <span class="perk-check">✓</span>
-          Personalized university shortlist based on your profile
-        </li>
-        <li>
-          <span class="perk-check">✓</span>
-          No commitment — it's a conversation, not a sales pitch
-        </li>
-        <li>
-          <span class="perk-check">✓</span>
-          Response within 24 business hours, guaranteed
-        </li>
-        <li>
-          <span class="perk-check">✓</span>
-          Advisor with direct experience studying or living in Germany
-        </li>
+    <!-- ESSENTIAL -->
+    <div class="pkg-card">
+      <div class="pkg-tier">Starter</div>
+      <div class="pkg-name">Essential</div>
+      <div class="pkg-sub">Direction & clarity for early planners</div>
+      <div class="pkg-price-block">
+        <div class="pkg-price"><span class="curr">AED </span>899</div>
+        <div class="pkg-cadence">one-time · full package</div>
+      </div>
+      <div class="pkg-who">Best for: students 1–2 years out</div>
+      <ul class="pkg-features">
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>1-on-1 consultation session (60 min)</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Personalised Germany study roadmap</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Top 5 university recommendations for your field</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Language school shortlist (3 matched options)</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>What German level you need & by when</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Full checklist: documents, deadlines & requirements</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>2-week WhatsApp follow-up support</li>
       </ul>
+      <a href="#contact" class="pkg-btn pkg-btn-outline">Get Started →</a>
     </div>
-          <a href="https://1w2wqdmqt8z.typeform.com/to/XKNgXc6D" class="btn-primary">Apply for Free Consultation →</a>
 
-    <!-- <div class="form-card">
-      <div id="theForm">
-        <div class="form-title">Apply for Consultation</div>
-        <p class="form-subtitle">Takes less than 2 minutes · Free of charge</p>
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="Maria">
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Santos">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="maria@email.com">
-        </div>
-        <div class="form-group">
-          <label>Country of Origin</label>
-          <select>
-            <option value="" disabled selected>Select your country</option>
-            <option>Brazil</option>
-            <option>India</option>
-            <option>Nigeria</option>
-            <option>Pakistan</option>
-            <option>Egypt</option>
-            <option>Morocco</option>
-            <option>Mexico</option>
-            <option>Indonesia</option>
-            <option>United Arab Emirates</option>
-            <option>Saudi Arabia</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Degree Level</label>
-            <select>
-              <option value="" disabled selected>Select</option>
-              <option>Bachelor's</option>
-              <option>Master's</option>
-              <option>PhD / Doctorate</option>
-              <option>Preparatory / Foundation</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Intended Start</label>
-            <select>
-              <option value="" disabled selected>Select</option>
-              <option>Winter 2025 (Oct)</option>
-              <option>Summer 2026 (Apr)</option>
-              <option>Winter 2026 (Oct)</option>
-              <option>Not sure yet</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Field of Study</label>
-          <select>
-            <option value="" disabled selected>What do you want to study?</option>
-            <option>Engineering & Technology</option>
-            <option>Computer Science & AI</option>
-            <option>Business & Economics</option>
-            <option>Natural Sciences</option>
-            <option>Medicine & Health Sciences</option>
-            <option>Arts, Design & Architecture</option>
-            <option>Social Sciences & Humanities</option>
-            <option>Law</option>
-            <option>Other / Not sure</option>
-          </select>
-        </div>
-        <button class="form-submit" onclick="handleSubmit()">Request My Free Consultation →</button>
-        <p class="form-note">🔒 Your information is secure and never shared with third parties.</p>
+    <!-- COMPLETE (FEATURED) -->
+    <div class="pkg-card featured">
+      <div class="feat-badge">★ Most Popular</div>
+      <div class="pkg-tier">Full Support</div>
+      <div class="pkg-name">Complete</div>
+      <div class="pkg-sub">End-to-end guidance to enrollment</div>
+      <div class="pkg-price-block">
+        <div class="pkg-price"><span class="curr">AED </span>2,499</div>
+        <div class="pkg-cadence">full service · until enrolled</div>
       </div>
-      <div class="form-success" id="formSuccess">
-        <div class="success-icon">🎉</div>
-        <div class="form-title" style="margin-bottom:0.5rem;">You're on the list!</div>
-        <p style="color:var(--mid);font-size:0.92rem;line-height:1.7;">One of our Germany advisors will reach out to you within 24 business hours. Check your inbox (and spam folder, just in case).</p>
-        <br>
-        <p style="font-size:0.82rem;color:var(--mid);">In the meantime, feel free to explore our <a href="#programs" style="color:var(--black);font-weight:600;">programs guide</a> or <a href="#faq" style="color:var(--black);font-weight:600;">FAQ</a>.</p>
+      <div class="pkg-who">Best for: applying within 12 months</div>
+      <ul class="pkg-features">
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Everything in Essential, plus:</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>We handle your language school enrolment</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>University application submission support</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Motivation letter review & feedback</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Document translation & certification guidance</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>DAAD & other scholarship eligibility check</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Student visa checklist & blocked account setup</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Unlimited WhatsApp support throughout</li>
+      </ul>
+      <a href="#contact" class="pkg-btn pkg-btn-solid">Enroll Now →</a>
+    </div>
+
+    <!-- ELITE -->
+    <div class="pkg-card">
+      <div class="pkg-tier">Premium</div>
+      <div class="pkg-name">Elite</div>
+      <div class="pkg-sub">White-glove service, nothing left to chance</div>
+      <div class="pkg-price-block">
+        <div class="pkg-price"><span class="curr">AED </span>4,200</div>
+        <div class="pkg-cadence">full service + 3-month post-arrival</div>
       </div>
-    </div> -->
+      <div class="pkg-who">Best for: students who want zero stress</div>
+      <ul class="pkg-features">
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Everything in Complete, plus:</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Dedicated personal advisor — one contact, always</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>We apply to up to 5 universities on your behalf</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>In-person visa application walk-through (Dubai)</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Housing search & city shortlist</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Airport arrival guidance & city orientation call</li>
+        <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>3-month check-ins after you arrive in Germany</li>
+      </ul>
+      <a href="#contact" class="pkg-btn pkg-btn-outline">Get Started →</a>
+    </div>
+
   </div>
-</section>
+</div>
+
+<div class="stripe"></div>
+
+<!-- GROUP / SCHOOL PACKAGE -->
+<div class="group-section" id="groups">
+  <div class="group-inner fadein">
+    <div class="section-eyebrow">Groups & Schools</div>
+    <h2 class="section-heading">Sending multiple<br>students to Germany?</h2>
+
+    <div class="group-grid">
+      <div>
+        <div class="group-card">
+          <div class="group-card-header">
+            <div class="group-badge">Group & School Package</div>
+            <h3>Kollektiv</h3>
+            <div class="sub">Collective Advisory Programme</div>
+          </div>
+          <div class="group-card-body">
+            <p style="font-size:14px;color:var(--mid);margin-bottom:28px;font-weight:300;line-height:1.8;">
+              Designed for Dubai schools and student groups sending cohorts to Germany. One coordinated advisory programme — better outcomes, lower cost per student, and a single point of contact for your institution.
+            </p>
+
+            <div class="group-tiers">
+              <div class="g-tier">
+                <div class="g-tier-size">5–10</div>
+                <div class="g-tier-label">Students</div>
+                <div class="g-tier-price">AED 1,499 <span>/ student</span></div>
+              </div>
+              <div class="g-tier">
+                <div class="g-tier-size">11–20</div>
+                <div class="g-tier-label">Students</div>
+                <div class="g-tier-price">AED 1,199 <span>/ student</span></div>
+              </div>
+              <div class="g-tier">
+                <div class="g-tier-size">21–40</div>
+                <div class="g-tier-label">Students</div>
+                <div class="g-tier-price">AED 899 <span>/ student</span></div>
+              </div>
+              <div class="g-tier">
+                <div class="g-tier-size">40+</div>
+                <div class="g-tier-label">Students</div>
+                <div class="g-tier-price">Custom <span>quote</span></div>
+              </div>
+            </div>
+
+            <ul class="group-features">
+              <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Group orientation session for all students (3 hrs)</li>
+              <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Individual profile assessment per student</li>
+              <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Coordinated language school placement for the cohort</li>
+              <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Bulk application support & document review</li>
+              <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Dedicated school coordinator liaison contact</li>
+              <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Parent information session (Arabic / English)</li>
+              <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Visa & travel coordination support</li>
+              <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Progress dashboard for school admin</li>
+              <li><span class="tick"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Post-arrival group check-in (1 month after landing)</li>
+            </ul>
+
+            <a href="#contact" class="pkg-btn-group">Request a Group Quote →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="group-sidebar">
+        <div class="sidebar-card">
+          <h4>Who is this for?</h4>
+          <ul class="who-list">
+            <li>Dubai private schools with graduating cohorts</li>
+            <li>Universities with outbound exchange programmes</li>
+            <li>Student clubs planning group study in Germany</li>
+            <li>Corporate sponsors sending staff to German universities</li>
+            <li>Government educational initiatives</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h4>Why go as a group?</h4>
+          <p>Students placed in the same language school cohort travel together and arrive with built-in peer support. It significantly improves retention, confidence, and wellbeing in the first critical months.</p>
+          <span class="sidebar-tag">Better outcomes together</span>
+        </div>
+
+        <div class="sidebar-card">
+          <h4>School Partnership</h4>
+          <p>We offer formal MOU partnerships with Dubai schools that want to make Germany a regular annual pathway for graduates. Includes info days, branded materials, and a dedicated account manager.</p>
+          <span class="sidebar-tag">Long-term partnership available</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LANGUAGE LEVELS REFERENCE -->
+<div class="levels-section fadein">
+  <div class="section-eyebrow">Language Requirement Reference</div>
+  <h2 class="section-heading">What German level<br>do students need?</h2>
+  <div class="levels-row">
+    <div class="lv-card">
+      <span class="lv-code">A1</span>
+      <div class="lv-name">Beginner</div>
+      <div class="lv-desc">Basic words & greetings</div>
+    </div>
+    <div class="lv-card">
+      <span class="lv-code">A2</span>
+      <div class="lv-name">Elementary</div>
+      <div class="lv-desc">Simple daily conversations</div>
+    </div>
+    <div class="lv-card">
+      <span class="lv-code">B1</span>
+      <div class="lv-name">Intermediate</div>
+      <div class="lv-desc">Handle most daily situations</div>
+    </div>
+    <div class="lv-card required">
+      <span class="lv-code">B2</span>
+      <div class="lv-name">Upper-Intermediate</div>
+      <div class="lv-desc">Independent academic use</div>
+      <span class="lv-req-tag">Min. Required</span>
+    </div>
+    <div class="lv-card required">
+      <span class="lv-code">C1</span>
+      <div class="lv-name">Advanced</div>
+      <div class="lv-desc">Fluent academic German</div>
+      <span class="lv-req-tag">Ideal Level</span>
+    </div>
+    <div class="lv-card">
+      <span class="lv-code">C2</span>
+      <div class="lv-name">Mastery</div>
+      <div class="lv-desc">Near-native proficiency</div>
+    </div>
+  </div>
+  <p class="levels-note">We don't teach German ourselves — we connect students with the right certified language schools that can take them from any starting level to B2/C1, the level required by most German public universities.</p>
+</div>
+
+<!-- CTA -->
+<div class="cta-section fadein" id="contact">
+  <div class="cta-box">
+    <div>
+      <div class="cta-label">Start Your Journey</div>
+      <h2 class="cta-title">Germany is closer<br>than you think. <em>Let's talk.</em></h2>
+      <p class="cta-sub">Book a free 20-minute consultation. We'll look at your profile and tell you exactly what your path to a German university looks like.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="https://wa.me/" class="cta-btn-wa">📲 WhatsApp Us</a>
+      <a href="mailto:hello@deutschweg.ae" class="cta-btn-email">✉ Send an Email</a>
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Study<span>Germany</span></div>
-  <ul class="footer-links">
-    <li><a href="#">Privacy Policy</a></li>
-    <li><a href="#">Terms of Service</a></li>
-    <li><a href="#">Contact Us</a></li>
-    <li><a href="#">Blog</a></li>
-  </ul>
-  <p>© 2025 StudyGermany. All rights reserved.</p>
+  <div class="footer-brand">DeutschWeg</div>
+  <div class="footer-note">Based in Dubai · German University Advisory · Connecting students since 2019</div>
 </footer>
 
 <script>
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
-
-  function handleSubmit() {
-    document.getElementById('theForm').style.display = 'none';
-    document.getElementById('formSuccess').classList.add('visible');
-  }
-
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.step, .program-card, .testi-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
-  });
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fadein').forEach(el => obs.observe(el));
 </script>
-
 </body>
 </html>
